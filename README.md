@@ -50,13 +50,14 @@ All of these are defined using **individual Terraform modules** to promote **reu
 ├── provider.tf           # Azure provider config
 ├── variables.tf          # Input variables for root module
 ├── terraform.tfvars      # Variable values (default)
-```
+
 📁 prod 
 ├── main.tf
 ├── provider.tf
 ├── variable.tf
 ├── terraform.tfvars
 
+```
 ---
 
 ## 🚀 Getting Started
@@ -70,8 +71,8 @@ All of these are defined using **individual Terraform modules** to promote **reu
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/ritesh-224/ritesh/tree/main/todoapp_iac
-cd todoapp_iac
+git clone https://github.com/ritesh-224/azure-monolithic-app-infrastructure-terraform.git
+cd azure-monolithic-app-infrastructure-terraform.git
 
 ```
 
