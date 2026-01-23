@@ -44,6 +44,7 @@ All of these are defined using **individual Terraform modules** to promote **reu
 ├── azurerm_pool_nic_association
 
 📁 environment
+
 📁 dev
 ├── main.tf               # Parent file calling all modules
 ├── provider.tf           # Azure provider config
@@ -55,6 +56,7 @@ All of these are defined using **individual Terraform modules** to promote **reu
 ├── provider.tf
 ├── variable.tf
 ├── terraform.tfvars
+
 ---
 
 ## 🚀 Getting Started
