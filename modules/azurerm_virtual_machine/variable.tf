@@ -4,11 +4,11 @@ variable "vms" {
     vnet_name      = string
     rg_name        = string
     location       = string
+    secret_name    = string
     subnet_name    = string
     vm_name        = string
     vm_size        = string
-    admin_username      = string
-    admin_password      = string
+    admin_username = string
     disable_password_authentication = bool
     config_name    = string
     source_image_reference = object({
@@ -18,4 +18,8 @@ variable "vms" {
       version   = string
     })
   }))
+}
+
+variable "key_vault_id" {
+  type    = string
 }

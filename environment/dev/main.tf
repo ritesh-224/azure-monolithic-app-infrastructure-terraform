@@ -32,12 +32,14 @@ module "virtual_machines" {
   depends_on = [module.networks, module.public_ips, module.key_vault, module.secrets]
   source     = "../../modules/azurerm_virtual_machine"
   vms        = var.vms
+  key_vault_id = module.key_vault.key_vault_id
 }
 
 module "mssql_server" {
   depends_on   = [module.resource_group]
   source       = "../../modules/azurerm_sql_server"
   mssql_server = var.mssql_server
+  key_vault_id = module.key_vault.key_vault_id
 }
 
 module "mssql_database" {

@@ -60,9 +60,9 @@ variable "key_vault" {
 }
 
 variable "secrets" {
+  description = "Map of secrets with their names and values"
   type = map(object({
-    name  = string
-    value = string
+    secret_key = string
   }))
 }
 
@@ -72,11 +72,11 @@ variable "vms" {
     vnet_name                       = string
     rg_name                         = string
     location                        = string
+    secret_name                     = string
     subnet_name                     = string
     vm_name                         = string
     vm_size                         = string
     admin_username                  = string
-    admin_password                  = string
     disable_password_authentication = bool
     config_name                     = string
     source_image_reference = object({
@@ -94,7 +94,7 @@ variable "mssql_server" {
     rg_name               = string
     location              = string
     server_login_name     = string
-    server_login_password = string
+    secret_name           = string
     tags                  = optional(map(string))
   }))
 }

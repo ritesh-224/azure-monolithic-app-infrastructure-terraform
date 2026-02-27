@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   size                = each.value.vm_size
   disable_password_authentication = lookup(each.value, "disable_password_authentication", false)
   admin_username      = each.value.admin_username
-  admin_password      = each.value.admin_password
+  admin_password      = data.azurerm_key_vault_secret.admin_passwords[each.key].value
   network_interface_ids = [
     azurerm_network_interface.nic[each.key].id,
   ]

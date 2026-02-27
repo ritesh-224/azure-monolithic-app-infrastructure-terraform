@@ -4,7 +4,11 @@ variable "mssql_server" {
   rg_name                      = string
   location                     = string
   server_login_name            = string
-  server_login_password        = string
+  secret_name                  = string
   tags                         = optional(map(string))
   }))
+}
+
+variable "key_vault_id" {
+  type = string
 }

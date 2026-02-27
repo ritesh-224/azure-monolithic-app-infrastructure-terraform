@@ -75,60 +75,55 @@ key_vault = {
 }
 
 secrets = {
-  secret1 = {
-    name  = "username1"
-    value = "adminuser1"
+  secret-1 = {
+   secret_key = "P@ssw0rd1234!"
   }
-  secret2 = {
-    name  = "password1"
-    value = "P@ssw0rd1234!"
+  secret-2 = {
+   secret_key = "P@ssw0rd5678!"
   }
-  secret3 = {
-    name  = "username2"
-    value = "adminuser2"
-  }
-  secret4 = {
-    name  = "password2"
-    value = "P@ssw0rd5678!"
+  secret-3 = {
+   secret_key = "StrongP@ssw0rd!"
   }
 }
+
 vms = {
   vm1 = {
     nic_name                        = "frontend-nic"
     rg_name                         = "test"
     location                        = "centralindia"
+    secret_name                     = "secret-1"
     vnet_name                       = "TodoVnet"
     subnet_name                     = "frontend-subnet"
     vm_name                         = "frontend-vm"
     vm_size                         = "Standard_B1s"
     admin_username                  = "adminuser1"
-    admin_password                  = "P@ssw0rd1234!"
     disable_password_authentication = false
     config_name                     = "nic1-config"
     source_image_reference = {
       publisher = "Canonical"
       offer     = "0001-com-ubuntu-server-jammy"
-      sku       = "20_04-LTS"
+      sku       = "22_04-LTS"
       version   = "latest"
     }
   }
+
   vm2 = {
     nic_name                        = "backend-nic"
     rg_name                         = "test"
     location                        = "centralindia"
+    secret_name                     = "secret-2"
     vnet_name                       = "TodoVnet"
     subnet_name                     = "backend-subnet"
     vm_name                         = "backend-vm"
     vm_size                         = "Standard_B1s"
     admin_username                  = "adminuser2"
-    admin_password                  = "P@ssw0rd1234!"
     disable_password_authentication = false
     config_name                     = "nic2-config"
 
     source_image_reference = {
       publisher = "Canonical"
       offer     = "0001-com-ubuntu-server-jammy"
-      sku       = "20_04-LTS"
+      sku       = "22_04-LTS"
       version   = "latest"
     }
   }
@@ -140,7 +135,7 @@ mssql_server = {
     rg_name                       = "test"
     location                      = "centralindia"
     server_login_name             = "mssqladmin"
-    server_login_password         = "StrongP@ssw0rd!"
+    secret_name                   = "secret-3"
     public_network_access_enabled = false
     tags = {
       "environment" = "dev"
@@ -176,8 +171,6 @@ public_lb = {
     }
   }
 }
-
-
 
 health_prob = {
   probe1 = {
